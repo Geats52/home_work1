@@ -29,8 +29,6 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
-    '10.13.88.78', 
-    '127.0.0.1', 
     'beginerprogrammist52.pythonanywhere.com',
     ]
 
@@ -105,7 +103,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'beginerprogrammi$default',
-        'USER': 'beginerprogrammist52',#!->'beginerprogrammi',
+        'USER': 'beginerprogrammist52',#!->'beginerprogrammi'
         'PASSWORD': os.getenv('MYSQL_PASSWORD'),
         'HOST': 'beginerprogrammist52.mysql.pythonanywhere-services.com',
         'OPTIONS': {
