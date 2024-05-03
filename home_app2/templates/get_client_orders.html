@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Получить заказы от клиента{% endblock %}
+{% block content %}
+<h3>Получить заказы от клиента</h3>
+    <form method="post">
+        {% csrf_token %}
+        <label for="client_id">Введите ID Клиента:</label>
+        <input type="text" id="client_id" name="client_id" required>
+        <br>
+        <p><em>* вы можете выбрать период, а также приобрести только уникальные продукты</em></p>
+        <input type="radio" id="7days" name="period" value="7">
+        <label for="7days">Заказы за последние 7 дней</label><br>
+        <input type="radio" id="30days" name="period" value="30">
+        <label for="30days">Заказы за последние 30 дней</label><br>
+        <input type="radio" id="365days" name="period" value="365">
+        <label for="365days">Заказы за последние 365 дней</label><br>
+         <input type="checkbox" id="unique" name="unique" value="True">
+        <label for="unique"><em>Показать уникальные продукты</em></label><br>
+        <button type="submit">Получить заказы</button>
+    </form>
+{% endblock %}

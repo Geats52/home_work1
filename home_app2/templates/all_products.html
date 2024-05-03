@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Спиок продуктов/товаров{% endblock %}
+
+{% block content %}
+<h2>Спиок продуктов/товаров</h2>
+
+<ul>
+  <ul>
+    {% for product in products %}
+    <li>
+        (<em>id:</em>{{ product.id }})|{{ product.name }} : {{ product.description }} |= {{ product.price }} руб.| {{ product.quantity }} кл./шт. ||
+        
+        {% if product.photo %}
+        <img src="{{ product.photo.url }}" width="100">
+        {% endif %}||
+        
+       <form id="updateForm{{ product.id }}" action="{% url 'update_product' product.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit">Изменить</button>
+        </form>
+        <form id="deleteForm{{ product.id }}" action="{% url 'delete_product' product.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="button" onclick="confirmDelete({{ product.id }})">Удалить</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+<script>
+    function confirmDelete(clientId) {
+        if (confirm('Вы уверены, что хотите удалить этот продукт из склада?')) {
+            document.getElementById('deleteForm' + productId).submit();
+        }
+    }
+</script>
+
+</ul>
+
+<script>
+  function confirmDelete(productId) {
+      if (confirm('Вы уверены, что хотите удалить этот продукт из склада?')) {
+          document.getElementById('deleteForm' + productId).submit();
+      }
+  }
+</script>
+
+{% endblock %}

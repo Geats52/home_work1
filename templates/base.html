@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Online shop{% endblock %}</title>
+    </head>
+    <body>
+        <h1>Welcome to our online store!</h1>
+        <ul>
+            <li><a href="/">Main</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="{% url 'get_orders_by_client' %}">All Client Orders</a></li>
+            <li><a href="{% url 'list_all_products' %}">List all products</a></li>
+            <li><a href="{% url 'product_create' %}">Create product</a></li>
+            <li><a href="{% url 'get_product_by_id' %}">Update product</a></li>
+        </ul>
+        {% block content %}
+        {% endblock %}
+    </body>
+    </html>

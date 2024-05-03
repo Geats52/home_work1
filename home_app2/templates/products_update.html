@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Обновление продукции{% endblock %}
+{% block content %}
+{% if success_message %}
+<div class="alert alert-success" role="alert">
+    {{ success_message }}
+</div>
+{% endif %}
+<h3>Полное обновление продукта/-ции</h3>
+<form method="post" >
+    {% csrf_token %}
+    <label for="product_id">Ввод продукции id:</label>
+    <input type="text" id="product_id" name="product_id" required>
+    <button type="submit">Обновление</button>
+</form>
+{% endblock %}

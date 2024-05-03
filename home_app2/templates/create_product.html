@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Добавить/регестрировать продукт</h2>
+<form method="post">
+  {% csrf_token %}
+  <label for="name">Название:</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="description">Описание товара:</label><br>
+  <textarea type="text" id="description" name="description"></textarea><br>
+  <label for="price">Ценна:</label><br>
+  <input type="number" id="price" name="price"><br>
+  <label for="quantity">Колличество товара:</label><br>
+  <input type="number" id="quantity" name="quantity"><br>
+  <button type="submit">Добавить</button>
+</form>
+{% endblock %}
+
