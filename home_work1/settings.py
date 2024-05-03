@@ -29,6 +29,8 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = [
+    '10.13.88.78', 
+    '127.0.0.1', 
     'beginerprogrammist52.pythonanywhere.com',
     ]
 
